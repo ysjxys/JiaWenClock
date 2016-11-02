@@ -1,0 +1,59 @@
+//
+//  JawenClock.pch
+//  JiawenClock
+//
+//  Created by ysj on 16/8/19.
+//  Copyright © 2016年 yushengjie. All rights reserved.
+//
+
+#ifndef JawenClock_pch
+#define JawenClock_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* JawenClock_pch */
+
+//当前设备宽度
+#define ScreenWidth [[UIScreen mainScreen] bounds].size.width
+//当前设备高度
+#define ScreenHeight [[UIScreen mainScreen] bounds].size.height
+//弱引用
+#define WeakSelf(type)  __weak typeof(type) weak##type = type;
+
+//tabbar默认高度
+#define TabBarHeight 49
+//顶部状态栏高度
+#define StatusBarHeight 20
+//navigationBar高度
+#define NavigationBarHeight 44
+//颜色设置
+#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+//自定义输出
+//#define YSJLog(...) NSLog(__VA_ARGS__)
+#ifdef DEBUG
+#define YSJLOG(...) printf(" %s\n",[[NSString stringWithFormat:__VA_ARGS__]UTF8String]);
+#define YSJLOG_CURRENT_METHOD NSLog(@"%@-%@", NSStringFromClass([self class]), NSStringFromSelector(_cmd))
+#else
+#define YSJLOG(...) ;
+#define YSJLOG_CURRENT_METHOD ;
+#endif
+
+#define TableNameWorkType @"WorkType"
+#define TableNameWorkDay @"WorkDay"
+
+#define IdKey @"id"
+#define WorkDateKey @"WorkDate"
+#define WorkTypeKey @"WorkType"
+#define StartTimeKey @"startTime"
+#define EndTimeKey @"endTime"
+#define LoveNameKey @"loveName"
+#define IsPlanedKey @"isPlaned"
+
+#define UserDefaultKeyAboveHours @"aboveHours"
+#define UserDefaultKeyShowDays @"showDays"
+#define UserDefaultKeyLocalCity @"localCity"
+
+#define HeadImgFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingPathComponent:@"headImg.jpg"]
+
+#define BackImgFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingPathComponent:@"backImg.jpg"]

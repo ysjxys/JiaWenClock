@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[AddWorkDayViewController setModelAndCellText:WithCellKey:]:AddWorkDayViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[FMDBHelper conditionKeyArr]:FMDBHelper.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

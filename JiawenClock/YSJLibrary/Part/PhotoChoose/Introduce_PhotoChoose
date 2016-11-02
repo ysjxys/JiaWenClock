@@ -1,0 +1,7 @@
+1、升级ios10后需要在info.plist内添加一个 NSPhotoLibraryUsageDescription的 key，然后添加一个描述，否则会产生崩溃，错误描述
+    This app has crashed because it attempted to access privacy-sensitive data without a usage description.  The app's Info.plist must contain an NSPhotoLibraryUsageDescription key with a string value explaining to the user how the app uses this data.
+    类似的还有：NSCameraUsageDescription,NSContactsUsageDescription,NSMicrophoneUsageDescription
+
+2、使用导航栏时，若采用ysj系列导航栏，需设置 isAutorotate 与 interfaceOrientation 参数，否则易因转屏设置不当而 产生崩溃
+
+
