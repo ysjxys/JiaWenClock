@@ -72,7 +72,18 @@
 
 - (void)sureBtnClicked{
     if (_workTypeId) {
-        [FMDBHelper updateTable:TableNameWorkDay updateDic:@{WorkTypeKey:_workTypeId} andOrKey:NoneKey compareKeyArr:@[[FMDBHelper compareKey:CompareKeyEqual]] columnArr:@[@{WorkDateKey:_date}]];
+        NSArray *arr = [FMDBHelper selectDataFromTable:TableNameWorkDay andOrKey:NoneKey compareKeyArr:@[[FMDBHelper compareKey:CompareKeyEqual]] columnArr:@[@{WorkDateKey:_date}]];
+    
+        if (arr.count == 0) {
+            //未插入数据，采用insert
+            NSDictionary *dic = @{WorkDateKey:_date, WorkTypeKey:_workTypeId};
+            [FMDBHelper insertKeyValues:dic intoTable:TableNameWorkDay];
+        }else{
+            //已插入数据，采用update
+            [FMDBHelper updateTable:TableNameWorkDay updateDic:@{WorkTypeKey:_workTypeId} andOrKey:NoneKey compareKeyArr:@[[FMDBHelper compareKey:CompareKeyEqual]] columnArr:@[@{WorkDateKey:_date}]];
+        }
+        
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshWorkDataNotification" object:nil];
     }
     [self.navigationController popViewControllerAnimated:YES];

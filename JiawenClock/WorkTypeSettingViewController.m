@@ -44,8 +44,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadWorkTypeArrData) name:@"updateWorkTypeSettingViewControllerNotification" object:nil];
 }
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateWorkTypeSettingViewControllerNotification" object:nil];
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)initViews{
